@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>研究defer和async的属性区别</title>
+  <!-- 
+    脚本是按顺序加载和执行的
+    脚本的加载和执行会阻塞页面解析
+    defer：异步加载，页面解析完成后执行，保证顺序，会阻止DOMContentLoaded事件
+    async：异步加载，加载后立即执行，不保证顺序，会阻止Load事件
+    一个脚本同时添加defer和async，会忽略defer
+    DOMContentLoaded：当初始的HTML文档被完全加载和解析完成之后，DOMContentLoaded事件就会被触发，而无需苦等待样式表、图像和子框架的完成加载
+    Load：当一个资源及其依赖资源已完成加载时，将触发load事件
+    两者的区别：DOMContentLoaded在HTML文档被解析完成之后触发，而load是在HTML所有相关资源被加载完成后触发
+   -->
+  <script src="script.js" aysnc></script>
+  
+</head>
+<body>
+  <div>
+    顺序执行加载
+  </div>
+</body>
+</html>
